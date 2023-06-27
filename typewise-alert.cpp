@@ -49,16 +49,15 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-  switch(breachType) {
-    case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    case NORMAL:
-      break;
+  const char* messages[] = {
+    "",                               // NORMAL
+    "Hi, the temperature is too low", // TOO_LOW
+    "Hi, the temperature is too high" // TOO_HIGH
+  };
+  int index = static_cast<int>(breachType);
+  const char* message = messages[index];
+  if (message[0] != '\0') {
+    printf("To: %s\n", recipient);
+    printf("%s\n", message);
   }
 }

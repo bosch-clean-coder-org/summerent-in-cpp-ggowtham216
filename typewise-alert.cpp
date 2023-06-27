@@ -57,7 +57,7 @@ void sendToEmail(BreachType breachType) {
   int index = static_cast<int>(breachType);
   const char* message = messages[index];
   if (message[0] != '\0') {
-    printf("To: %s\n", recipient);
+    printf("To: %s\n", recepient);
     printf("%s\n", message);
   }
 }

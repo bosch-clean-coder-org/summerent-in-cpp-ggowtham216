@@ -17,8 +17,6 @@
 #define CATCH_VERSION_MINOR 13
 #define CATCH_VERSION_PATCH 0
 
-#define SIG_STACK_SIZE (32768 >= MINSIGSTKSZ ? 32768 : MINSIGSTKSZ)
-
 #ifdef __clang__
 #    pragma clang system_header
 #elif defined __GNUC__
@@ -10826,7 +10824,7 @@ namespace Catch {
 
     // 32kb for the alternate stack seems to be sufficient. However, this value
     // is experimentally determined, so that's not guaranteed.
-    constexpr std::size_t sigStackSize = SIG_STACK_SIZE;
+    static constexpr std::size_t sigStackSize = 32768;
 
     static SignalDefs signalDefs[] = {
         { SIGINT,  "SIGINT - Terminal interrupt signal" },

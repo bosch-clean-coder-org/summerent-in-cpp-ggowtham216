@@ -35,4 +35,36 @@ TEST_CASE("classify the breach type when PASSIVE_COOLING and temparature is 36")
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 36) == TOO_HIGH);
 }
 
+TEST_CASE("classify the breach type when HI_ACTIVE_COOLING and temparature is -5") {
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, -5) == TOO_LOW);
+}
+
+TEST_CASE("classify the breach type when HI_ACTIVE_COOLING and temparature is zero") {
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 0) == NORMAL);
+}
+
+TEST_CASE("classify the breach type when HI_ACTIVE_COOLING and temparature is 10") {
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 10) == NORMAL);
+}
+
+TEST_CASE("classify the breach type when HI_ACTIVE_COOLING and temparature is 46") {
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
+}
+
+TEST_CASE("classify the breach type when MED_ACTIVE_COOLING and temparature is -5") {
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, -5) == TOO_LOW);
+}
+
+TEST_CASE("classify the breach type when MED_ACTIVE_COOLING and temparature is zero") {
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0) == NORMAL);
+}
+
+TEST_CASE("classify the breach type when MED_ACTIVE_COOLING and temparature is 10") {
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 10) == NORMAL);
+}
+
+TEST_CASE("classify the breach type when MED_ACTIVE_COOLING and temparature is 41") {
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 41) == TOO_HIGH);
+}
+
 
